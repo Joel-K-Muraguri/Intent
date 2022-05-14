@@ -9,6 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.intent.navigation.NavGraph
 import com.example.intent.ui.theme.IntentTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,8 +23,7 @@ class MainActivity : ComponentActivity() {
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background) {
                      navController = rememberNavController()
-                    IntentNavGraph(navController = navController)
-
+                    NavGraph(navController = navController)
                 }
             }
         }
