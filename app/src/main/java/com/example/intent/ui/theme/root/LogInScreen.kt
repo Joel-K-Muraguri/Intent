@@ -14,9 +14,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.intent.navigation.ScreenRoutes
 
 @Composable
-fun LogInScreen(){
+fun LogInScreen(
+    navController: NavHostController
+){
     var name by remember {
         mutableStateOf("")
     }
@@ -43,7 +49,8 @@ fun LogInScreen(){
             shape = RoundedCornerShape(20.dp)
         )
         Spacer(modifier = Modifier.height(20.dp))
-        Button(onClick = { /*TODO*/ }) {
+        Button(
+            onClick = {navController.navigate(ScreenRoutes.SignIn.route) }) {
             Text(text = "LOG IN")
         }
     }
@@ -52,5 +59,6 @@ fun LogInScreen(){
 @Preview(showBackground = true)
 @Composable
 fun LogInScreenPreview(){
-    LogInScreen()
+    val navController = rememberNavController()
+    LogInScreen(navController = navController)
 }

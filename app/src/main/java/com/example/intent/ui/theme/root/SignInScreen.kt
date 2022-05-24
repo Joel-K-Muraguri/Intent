@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -16,9 +15,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.intent.navigation.ScreenRoutes
 
 @Composable
-fun SignInScreen(){
+fun SignInScreen(
+    navController: NavHostController
+){
     var name by remember {
         mutableStateOf("")
     }
@@ -47,7 +51,7 @@ fun SignInScreen(){
             shape = RoundedCornerShape(20.dp)         
         )
         Spacer(modifier = Modifier.height(5.dp))
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = { navController.navigate(ScreenRoutes.Home.route) }) {
             Text(text = "SIGN IN")
         }
     }
@@ -56,5 +60,6 @@ fun SignInScreen(){
 @Preview(showBackground = true)
 @Composable
 fun SignInScreenPreview(){
-    SignInScreen()
+    val navController = rememberNavController()
+    SignInScreen(navController = navController)
 }
