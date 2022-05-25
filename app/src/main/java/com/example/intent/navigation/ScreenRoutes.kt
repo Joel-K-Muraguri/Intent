@@ -1,15 +1,10 @@
 package com.example.intent.navigation
 
-const val PROFILE_ARGUMENT_KEY = "id"
+const val ROOT_GRAPH = "root"
+const val AUTHENTICATION_GRAPH = "authentication"
+const val OTHER_SCREENS_GRAPH = "others"
 
-
-const val SIGN_IN_SCREEN = "sign_in_screen"
-const val LOG_IN_SCREEN = "log_in_screen"
-
-const val HOME_SCREEN = "home_screen"
-
-
-sealed class ScreenRoutes(var route:String){
+sealed class ScreenRoutes(val route:String){
     object Home : ScreenRoutes("home_screen")
     object Profile : ScreenRoutes("profile_screen")
     object Settings : ScreenRoutes("settings_screen")

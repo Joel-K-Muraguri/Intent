@@ -1,4 +1,4 @@
-package com.example.intent.ui.theme.root
+package com.example.intent.ui.theme.authentication
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
